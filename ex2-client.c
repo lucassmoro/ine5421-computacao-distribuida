@@ -31,6 +31,6 @@ int main(){
     }
     write(sockfd, buffer, strlen(buffer) + 1);
     read(sockfd, &resultado, 4);
-    printf("resultado: %d", resultado);
+    printf("CLIENT: recebi %d\n", resultado);
     close(sockfd);
 }

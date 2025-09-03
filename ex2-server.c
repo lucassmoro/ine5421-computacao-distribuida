@@ -33,12 +33,14 @@ int main(){
         //com o sscanf consegue 'pegar os indices' corretos do vetor para atribuir as variaveis op, a, b
         read(csocket, buffer, 100);
         sscanf(buffer, "%c %d %d", &op, &a, &b);
+        printf("SERVER: recebi %d %c %d\n", a, op, b);
         switch(op){
             case '+': resultado = a + b; break;
             case '-': resultado = a - b; break;
             case '*': resultado = a * b; break;
             case '/': resultado = a / b; break;
         }
+        printf("SERVER: enviando %d\n", resultado);
         write(csocket, &resultado, 4);
     }
 }
