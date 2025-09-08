@@ -42,5 +42,6 @@ int main(){
         }
         printf("SERVER: enviando %d\n", resultado);
         write(csocket, &resultado, 4);
+        close(csocket);
     }
 }

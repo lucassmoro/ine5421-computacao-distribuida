@@ -30,6 +30,7 @@ int main(){
         exit(1);
     }
     write(sockfd, buffer, strlen(buffer) + 1);
+    printf("CLIENT: enviando %d + %d\n", operando1, operando2);
     read(sockfd, &resultado, 4);
     printf("CLIENT: recebi %d\n", resultado);
     close(sockfd);
