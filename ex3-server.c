@@ -31,8 +31,8 @@ int main(){
     time_t tempo_dif;
     while(1){
         int n = recvfrom(serversocket, &recebidos, sizeof(recebidos), 0, (struct sockaddr *) &clientaddr, &client_len);
+        if (n>0) qtd++;
         buffer[0] += recebidos;
-        qtd++;
         if (((tempo_dif = time(NULL)) - tempo) > 1) {
             printf("SERVER: qtd de medicoes coletadas = %d\n", qtd);
             printf("SERVER: soma das medicoes = %d\n", buffer[0]);
