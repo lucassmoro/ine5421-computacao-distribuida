@@ -12,7 +12,7 @@ int main(){
     int serversocket;
     struct sockaddr_in serveraddr, clientaddr;
     socklen_t server_len, client_len;
-    int buffer[2];
+    int buffer;
     int recebidos;
     int qtd = 0;
     
@@ -32,10 +32,10 @@ int main(){
     while(1){
         int n = recvfrom(serversocket, &recebidos, sizeof(recebidos), 0, (struct sockaddr *) &clientaddr, &client_len);
         if (n>0) qtd++;
-        buffer[0] += recebidos;
-        if (((tempo_dif = time(NULL)) - tempo) > 1) {
+        buffer += recebidos;
+        if (((tempo_dif = time(NULL)) - tempo) >= 1) {
             printf("SERVER: qtd de medicoes coletadas = %d\n", qtd);
-            printf("SERVER: soma das medicoes = %d\n", buffer[0]);
+            printf("SERVER: media das medicoes = %d\n", buffer/qtd);
             tempo = time(NULL);
         }
     }
