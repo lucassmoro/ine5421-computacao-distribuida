@@ -28,6 +28,8 @@ int main(){
 
     clientlen = sizeof(clientaddr);
     while(1){
+        //aqui eu aceito e depois fecho e dps abro dnv caso o mesmo cliente queira se conectar
+        //se eu quisesse ficar lendo apenas do mesmo cliente eu poderia botar o accept fora do loop e ficar apenas com o read dentro do loop. e tambem nao chamava o close()
         csocket = accept(ssocket, (struct sockaddr*) &clientaddr, &clientlen);
         // duvida de c: considerando que o buffer é uma lista de 100 char, como o programa 
         //com o sscanf consegue 'pegar os indices' corretos do vetor para atribuir as variaveis op, a, b
